@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ERDPlusFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="3">
+  <Diagrams>
+    <StoreDiagram Kind="Erd">
+      <Objects>
+        <StoreRelationshipConnector Id="79" EntityId="11" RelationshipId="30" IsEntitySlot1="true" />
+        <StoreRelationshipConnector Id="78" EntityId="18" RelationshipId="30" IsEntitySlot1="false" />
+        <StoreRelationshipConnector Id="77" EntityId="11" RelationshipId="45" IsEntitySlot1="true" />
+        <StoreRelationshipConnector Id="76" EntityId="25" RelationshipId="45" IsEntitySlot1="false" />
+        <StoreRelationshipConnector Id="75" EntityId="18" RelationshipId="48" IsEntitySlot1="true" />
+        <StoreRelationshipConnector Id="74" EntityId="49" RelationshipId="48" IsEntitySlot1="false" />
+        <StoreRelationshipConnector Id="73" EntityId="8" RelationshipId="68" IsEntitySlot1="true" />
+        <StoreRelationshipConnector Id="72" EntityId="11" RelationshipId="68" IsEntitySlot1="false" />
+        <StoreEntity Id="8" Name="Event" X="463" Y="18" Width="96" Height="48" Kind="Regular" />
+        <StoreAttribute Id="9" Name="Event_Name_ID" X="463" Y="91" Width="96" Height="48" IsComposite="false" IsDerived="false" IsMultivalue="false" IsUnique="true" IsOptional="false" AssignedParentId="8" />
+        <StoreEntity Id="11" Name="Tournaments" X="154" Y="168" Width="96" Height="48" Kind="Regular" />
+        <StoreAttribute Id="12" Name="Game_Name_ID" X="27" Y="71" Width="96" Height="48" IsComposite="false" IsDerived="false" IsMultivalue="false" IsUnique="true" IsOptional="false" AssignedParentId="11" />
+        <StoreAttribute Id="14" Name="Rules(text field)" X="143" Y="32" Width="96" Height="48" IsComposite="false" IsDerived="false" IsMultivalue="false" IsUnique="false" IsOptional="false" AssignedParentId="11" />
+        <StoreAttribute Id="16" Name="Character Ban (y/n)" X="14" Y="163" Width="96" Height="48" IsComposite="false" IsDerived="false" IsMultivalue="false" IsUnique="false" IsOptional="false" AssignedParentId="11" />
+        <StoreEntity Id="18" Name="Players" X="609" Y="171" Width="96" Height="48" Kind="Regular" />
+        <StoreAttribute Id="19" Name="Name" X="609" Y="87" Width="96" Height="48" IsComposite="false" IsDerived="false" IsMultivalue="false" IsUnique="false" IsOptional="false" AssignedParentId="18" />
+        <StoreAttribute Id="21" Name="GamerTag_ID" X="736" Y="117" Width="96" Height="48" IsComposite="false" IsDerived="false" IsMultivalue="false" IsUnique="true" IsOptional="false" AssignedParentId="18" />
+        <StoreAttribute Id="23" Name="Address" X="752" Y="195" Width="96" Height="48" IsComposite="false" IsDerived="false" IsMultivalue="false" IsUnique="false" IsOptional="false" AssignedParentId="18" />
+        <StoreEntity Id="25" Name="Characters" X="115" Y="439" Width="96" Height="48" Kind="Regular" />
+        <StoreRelationship Id="30" Name="Tourney Entry" X="382" Y="170" Width="96" Height="48" Kind="Regular">
+          <Slot1 Participation="Mandatory" Cardinality="Many" RoleName="" />
+          <Slot2 Participation="Mandatory" Cardinality="Many" RoleName="" />
+        </StoreRelationship>
+        <StoreAttribute Id="33" Name="Game_Name_ID" X="224" Y="238" Width="96" Height="48" IsComposite="false" IsDerived="false" IsMultivalue="false" IsUnique="false" IsOptional="false" AssignedParentId="30" />
+        <StoreAttribute Id="35" Name="GamerTag_ID" X="426" Y="262" Width="96" Height="48" IsComposite="false" IsDerived="false" IsMultivalue="false" IsUnique="false" IsOptional="false" AssignedParentId="30" />
+        <StoreAttribute Id="37" Name="Ranking" X="318" Y="260" Width="96" Height="48" IsComposite="false" IsDerived="false" IsMultivalue="false" IsUnique="false" IsOptional="false" AssignedParentId="30" />
+        <StoreAttribute Id="39" Name="Pool_ID" X="520" Y="231" Width="96" Height="48" IsComposite="false" IsDerived="false" IsMultivalue="false" IsUnique="false" IsOptional="false" AssignedParentId="30" />
+        <StoreAttribute Id="41" Name="Char_Name_ID" X="117" Y="519" Width="96" Height="48" IsComposite="false" IsDerived="false" IsMultivalue="false" IsUnique="true" IsOptional="false" AssignedParentId="25" />
+        <StoreAttribute Id="43" Name="Ban" X="257" Y="466" Width="96" Height="48" IsComposite="false" IsDerived="false" IsMultivalue="false" IsUnique="false" IsOptional="false" AssignedParentId="25" />
+        <StoreRelationship Id="45" Name="Has" X="112" Y="314" Width="96" Height="48" Kind="Regular">
+          <Slot1 Participation="Mandatory" Cardinality="Many" RoleName="" />
+          <Slot2 Participation="Unspecified" Cardinality="Unspecified" RoleName="" />
+        </StoreRelationship>
+        <StoreRelationship Id="48" Name="IN" X="609" Y="330" Width="96" Height="48" Kind="Regular">
+          <Slot1 Participation="Mandatory" Cardinality="Many" RoleName="" />
+          <Slot2 Participation="Mandatory" Cardinality="Many" RoleName="" />
+        </StoreRelationship>
+        <StoreEntity Id="49" Name="Pools" X="612" Y="469" Width="96" Height="48" Kind="Regular" />
+        <StoreAttribute Id="50" Name="Pool_ID" X="465" Y="444" Width="96" Height="48" IsComposite="false" IsDerived="false" IsMultivalue="false" IsUnique="false" IsOptional="false" AssignedParentId="49" />
+        <StoreAttribute Id="52" Name="Game_Name_ID" X="722" Y="471" Width="96" Height="48" IsComposite="false" IsDerived="false" IsMultivalue="false" IsUnique="true" IsOptional="false" AssignedParentId="49" />
+        <StoreAttribute Id="54" Name="GamerTag_ID" X="488" Y="515" Width="96" Height="48" IsComposite="false" IsDerived="false" IsMultivalue="false" IsUnique="true" IsOptional="false" AssignedParentId="49" />
+        <StoreAttribute Id="58" Name="Pool_ID" X="723" Y="281" Width="96" Height="48" IsComposite="false" IsDerived="false" IsMultivalue="false" IsUnique="false" IsOptional="false" AssignedParentId="48" />
+        <StoreAttribute Id="60" Name="GamerTag_ID" X="727" Y="343" Width="96" Height="48" IsComposite="false" IsDerived="false" IsMultivalue="false" IsUnique="false" IsOptional="false" AssignedParentId="48" />
+        <StoreAttribute Id="62" Name="Game_Name_ID" X="207" Y="383" Width="96" Height="48" IsComposite="false" IsDerived="false" IsMultivalue="false" IsUnique="false" IsOptional="false" AssignedParentId="45" />
+        <StoreAttribute Id="64" Name="Char_Name_ID" X="15" Y="390" Width="96" Height="48" IsComposite="false" IsDerived="false" IsMultivalue="false" IsUnique="false" IsOptional="false" AssignedParentId="45" />
+        <StoreAttribute Id="66" Name="Ban" X="0" Y="275" Width="96" Height="48" IsComposite="false" IsDerived="false" IsMultivalue="false" IsUnique="false" IsOptional="false" AssignedParentId="45" />
+        <StoreRelationship Id="68" Name="Includes" X="292" Y="17" Width="96" Height="48" Kind="Regular">
+          <Slot1 Participation="Mandatory" Cardinality="Many" RoleName="" />
+          <Slot2 Participation="Mandatory" Cardinality="One" RoleName="" />
+        </StoreRelationship>
+        <StoreAttribute Id="71" Name="Game_Name_ID" X="295" Y="102" Width="96" Height="48" IsComposite="false" IsDerived="false" IsMultivalue="false" IsUnique="false" IsOptional="false" AssignedParentId="68" />
+      </Objects>
+      <Settings Units="Inches" Orientation="Landscape" PresetPaperId="US_Letter" SheetWidth="8.5" SheetHeight="11.0" LeftMargin="1.0" TopMargin="1.0" RightMargin="1.0" BottomMargin="1.0" />
+    </StoreDiagram>
+  </Diagrams>
+</ERDPlusFile>
