@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  players_id: 
+  pools_id: 
+
+two:
+  players_id: 
+  pools_id: 

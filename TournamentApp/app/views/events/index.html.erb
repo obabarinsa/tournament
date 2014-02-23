@@ -1,0 +1,28 @@
+<div class="page-header">
+
+  <%= link_to "Add a New event", "/events/new",
+              :class => "pull-right btn btn-success btn-large" %>
+
+  <h1>Event</h1>
+</div>
+
+<% @events.each do |event| %>
+  <div class="row">
+    <div class="col-md-3">
+      <%= image_tag event.image, :class => "col-md-10" %>
+    </div>
+    <div class="col-md-9">
+      <h2>
+        <%= link_to event.event, event_path(event.id) %>
+        (<%= event.game %>)
+      </h2>
+      <p class="lead"><%= event.event %></p>
+      <p>Directed by <%= event.game %></p>
+      <p>Starring Tom Hanks, Kevin Bacon</p>
+      <p>
+        <%= link_to "Edit This event", edit_event_path(event.id) %> |
+        <%= link_to "Delete This event", event_path(event.id), :method => 'delete' %>
+      </p>
+    </div>
+  </div>
+<% end %>

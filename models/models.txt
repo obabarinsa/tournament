@@ -1,0 +1,39 @@
+class Assigned < ActiveRecord::Base
+
+	belongs_to :players
+	belongs_to :pools
+end
+
+class Character < ActiveRecord::Base
+
+	has_many :feature
+	has_many :tournaments, :through => :feature
+end
+
+class Event < ActiveRecord::Base
+
+	has_many :tournaments
+end
+class Feature < ActiveRecord::Base
+
+	belongs_to :tournaments
+	belongs_to :characters
+end
+class Pool < ActiveRecord::Base
+
+has_many :assigned
+	has_many :players :through => :assigned
+end
+
+class Tournament < ActiveRecord::Base
+
+	has_many :players, :through => :tourney_entry
+	has_many :characters, :through => :feature
+end
+
+class Tourney_entry < ActiveRecord::Base
+
+	belongs_to :tournament
+	belongs_to :player
+	belongs_to :pool
+end
