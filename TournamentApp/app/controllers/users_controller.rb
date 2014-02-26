@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
- 
- def show
+
+  def show
     @user = User.find(params[:id])
     if session[:user_id] != @user.id
       redirect_to root_url, notice: "No way!"
@@ -11,7 +11,8 @@ class UsersController < ApplicationController
     user = User.new
     user.name = params[:name]
     user.email = params[:email]
-    user.password = params[:password_digest]
+    user.password = params[:password]
+    user.password_confirmation = params[:password]
     user.save
     session[:user_id] = user.id
     redirect_to root_url, notice: "Thanks for signing up!"

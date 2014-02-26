@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140226055429) do
+ActiveRecord::Schema.define(version: 20140226201519) do
 
   create_table "assigns", force: true do |t|
     t.integer  "players_id"

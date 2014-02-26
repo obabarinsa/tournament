@@ -1,31 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Tournament</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-	<!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <% if session[:user_id] %>
-          <li>Hello! <%= User.find(session[:user_id]).name %></li>
-        <% end %>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Tournament App" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Tournament App" %>">
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header>
+      <%= render 'layouts/navigation' %>
+    </header>
+    <main role="main">
+       <%= render 'layouts/messages' %>
 
-        <li><%= link_to "Event", events_url %></li>
-        <li><%= link_to "Tournaments", tournaments_url %></li>
-        <li><%= link_to "Pools", pools_url %></li>
-        
-          <li><%= link_to "Sign Up", new_user_url %></li>
-          <li><%= link_to "Sign In", new_session_url %></li>
-          <li><%= link_to "Sign Out", logout_url %></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </nav>
 
-<%= yield %>
+       <%= yield %>
+    </main>
 
-</body>
+    
+  </body>
 </html>

@@ -1,0 +1,22 @@
+<%# add navigation links to this file %>
+
+<% if session[:user_id] %>
+          <li>Hello! <%= User.find(session[:user_id]).name %></li>
+        <% end %>
+
+ <%= link_to 'Home', root_path, class: 'navbar-brand' %>
+  <%= link_to 'Event', events_url, class: 'navbar-brand' %>
+   <%= link_to 'Tournament', tournaments_url, class: 'navbar-brand' %>
+    <%= link_to 'Pools', pools_url, class: 'navbar-brand' %>
+
+ <% if session[:user_id].blank? %>
+    <%= link_to "Sign Up", new_user_url, class: 'navbar-brand' %>
+     <%= link_to "Sign In", new_session_url,  class: 'navbar-brand' %>
+
+
+ <% else %>
+       <%= link_to "Sign Out", logout_url ,  class: 'navbar-brand'%>
+       <%= link_to "My Profile", user_url(session[:user_id]),  class: 'navbar-brand' %>
+
+
+  <% end %>
