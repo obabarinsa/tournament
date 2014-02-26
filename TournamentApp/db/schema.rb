@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140223075149) do
+ActiveRecord::Schema.define(version: 20140226055429) do
 
   create_table "assigns", force: true do |t|
     t.integer  "players_id"
@@ -74,5 +74,13 @@ ActiveRecord::Schema.define(version: 20140223075149) do
   add_index "tourney_entries", ["players_id"], name: "index_tourney_entries_on_players_id"
   add_index "tourney_entries", ["pools_id"], name: "index_tourney_entries_on_pools_id"
   add_index "tourney_entries", ["tournaments_id"], name: "index_tourney_entries_on_tournaments_id"
+
+  create_table "users", force: true do |t|
+    t.string   "email"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "password_digest"
+  end
 
 end
