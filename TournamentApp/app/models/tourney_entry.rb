@@ -1,5 +1,6 @@
 class TourneyEntry < ActiveRecord::Base
-  belongs_to :tournaments
-  belongs_to :players
-  belongs_to :pools
+  belongs_to :tournament
+  belongs_to :player
+  belongs_to :pool
+  belongs_to :registration
 end

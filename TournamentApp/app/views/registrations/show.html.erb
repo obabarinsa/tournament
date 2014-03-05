@@ -1,0 +1,11 @@
+<h1>My Registration</h1>
+
+<p>Name: <%= @registration.name %></p>
+<p>GamerTag: <%= @registration.gamertag %></p>
+<p>Address: <%= @registration.address %></p>
+
+	<p> Game: <%= @registration.game %></p>
+
+
+
+<%= link_to "My Profile!", user_url(session[:user_id]) %> 

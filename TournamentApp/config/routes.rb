@@ -1,11 +1,11 @@
 TournamentApp::Application.routes.draw do
  
-  # devise_for :users
 root "events#home" 
 
  
 resources :users
 resources :sessions
+resources :registrations
 
 # post '/login' => 'users#login'
 

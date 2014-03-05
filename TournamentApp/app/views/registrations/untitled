@@ -1,0 +1,87 @@
+<div class="form_for">
+    <label for="tournament.game[]">Tournaments:</label>
+    <% for tournament in Tournament.find(:all)  %>
+      <br><%= check_box_tag :game, tournament.game %>
+      <%= tournament.game.humanize %>
+    <% end %>
+</div>   
+
+<h1>My Profile</h1>
+
+<p>Name: <%= @user.name %></p>
+<p>Password: <%= @user.password %></p>
+
+
+<h2> Tournament Registration </h2>
+
+<label> Player Info:</label>
+<%= form_tag "/registrations" do %>
+
+  <%= label_tag :name %>
+  <%= text_field_tag :name %>
+  <br>
+  <%= label_tag :gamertag %>
+  <%= text_field_tag :gamertag %>
+  <br>
+  <%= label_tag :address %>
+  <%= text_field_tag :address %>
+  <br>
+
+<br>
+  
+<div class="form_for">
+    <label for="tournament.game[]">Tournaments:</label>
+    <% for tournament in Tournament.find(:all)  %>
+      <br><%= check_box_tag :game, tournament.game %>
+      <%= tournament.game.humanize %>
+    <% end %>
+</div>   
+
+<br>
+<%= submit_tag "Submit!" %>
+
+<% end %>
+
+
+<%= form_for Registration.new do |registration_form| %>
+  <%= registration_form.check_box :game %>
+  <% @registration.game.each do |game| %>
+    <%= registration_form.fields_for game, index: game do |game_form|%>
+      <%= address_form.check_box :game %>
+    <% end %>
+  <% end %>
+<% end %>
+
+
+
+<% form_for @registration do |f| %>
+
+
+  <p>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  </p>
+  <%= f.label :gamertag %>
+  <%= f.text_field :gamertag %>
+  <p>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+  </p>
+
+
+<% fields_for :tournaments do |builder| %>
+<p>
+	<%= builder.check_box :game %>
+</p>
+
+<% end %>
+
+<p> <%= f.submit "Submit" %> </p>
+<% end %>
+
+
+<%= form_for @registration do |r| %>
+  <%= r.check_box  %>
+  
+<% end %>

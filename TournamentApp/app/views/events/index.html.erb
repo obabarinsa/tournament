@@ -2,8 +2,9 @@
 
   
 
-  <h1>Event</h1>
-</div>
+ <h1>UFGT 10</h1>
+   <h1>events</h1>
+
 
 <% @events.each do |event| %>
   <div class="row">
@@ -11,17 +12,10 @@
       <%= image_tag event.image, :class => "col-md-10" %>
     </div>
     <div class="col-md-9">
-      <h2>
-        <%= link_to event.event, event_path(event.id) %>
-        (<%= event.game %>)
-      </h2>
-      <p class="lead"><%= event.event %></p>
-      <p>Directed by <%= event.game %></p>
-      <p>Starring Tom Hanks, Kevin Bacon</p>
-      <p>
-        <%= link_to "Edit This event", edit_event_path(event.id) %> |
-        <%= link_to "Delete This event", event_path(event.id), :method => 'delete' %>
-      </p>
+      <h2><%= event.game %></h2>
+
+      <p class="lead"><%= 'Rules: ' + event.rules %></p>
     </div>
   </div>
 <% end %>
+

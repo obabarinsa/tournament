@@ -11,17 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140226201519) do
+ActiveRecord::Schema.define(version: 20140305081629) do
 
   create_table "assigns", force: true do |t|
-    t.integer  "players_id"
-    t.integer  "pools_id"
+    t.integer  "player_id"
+    t.integer  "pool_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "assigns", ["players_id"], name: "index_assigns_on_players_id"
-  add_index "assigns", ["pools_id"], name: "index_assigns_on_pools_id"
+  add_index "assigns", ["player_id"], name: "index_assigns_on_player_id"
+  add_index "assigns", ["pool_id"], name: "index_assigns_on_pool_id"
 
   create_table "characters", force: true do |t|
     t.string "game"
@@ -33,23 +33,27 @@ ActiveRecord::Schema.define(version: 20140226201519) do
     t.string "event"
     t.string "game"
     t.string "image"
+    t.string "rules"
   end
 
   create_table "features", force: true do |t|
-    t.integer  "tournaments_id"
-    t.integer  "characters_id"
+    t.integer  "tournament_id"
+    t.integer  "character_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "features", ["characters_id"], name: "index_features_on_characters_id"
-  add_index "features", ["tournaments_id"], name: "index_features_on_tournaments_id"
+  add_index "features", ["character_id"], name: "index_features_on_character_id"
+  add_index "features", ["tournament_id"], name: "index_features_on_tournament_id"
 
   create_table "players", force: true do |t|
-    t.string "name"
-    t.string "gamertag"
-    t.string "address"
+    t.string  "name"
+    t.string  "gamertag"
+    t.string  "address"
+    t.integer "registration_id"
   end
+
+  add_index "players", ["registration_id"], name: "index_players_on_registration_id"
 
   create_table "pools", force: true do |t|
     t.string  "game"
@@ -58,22 +62,40 @@ ActiveRecord::Schema.define(version: 20140226201519) do
     t.integer "pool_group"
   end
 
-  create_table "tournaments", force: true do |t|
-    t.string "game"
-    t.string "rules"
-  end
-
-  create_table "tourney_entries", force: true do |t|
-    t.integer  "tournaments_id"
-    t.integer  "players_id"
-    t.integer  "pools_id"
+  create_table "registrations", force: true do |t|
+    t.string   "name"
+    t.string   "gamertag"
+    t.string   "address"
+    t.string   "game"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "tourney_entries", ["players_id"], name: "index_tourney_entries_on_players_id"
-  add_index "tourney_entries", ["pools_id"], name: "index_tourney_entries_on_pools_id"
-  add_index "tourney_entries", ["tournaments_id"], name: "index_tourney_entries_on_tournaments_id"
+  add_index "registrations", ["user_id"], name: "index_registrations_on_user_id"
+
+  create_table "tournaments", force: true do |t|
+    t.string  "game"
+    t.integer "registration_id"
+    t.integer "event_id"
+  end
+
+  add_index "tournaments", ["event_id"], name: "index_tournaments_on_event_id"
+  add_index "tournaments", ["registration_id"], name: "index_tournaments_on_registration_id"
+
+  create_table "tourney_entries", force: true do |t|
+    t.integer  "tournament_id"
+    t.integer  "player_id"
+    t.integer  "pool_id"
+    t.integer  "registration_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tourney_entries", ["player_id"], name: "index_tourney_entries_on_player_id"
+  add_index "tourney_entries", ["pool_id"], name: "index_tourney_entries_on_pool_id"
+  add_index "tourney_entries", ["registration_id"], name: "index_tourney_entries_on_registration_id"
+  add_index "tourney_entries", ["tournament_id"], name: "index_tourney_entries_on_tournament_id"
 
   create_table "users", force: true do |t|
     t.string   "email"

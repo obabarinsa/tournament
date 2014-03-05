@@ -1,4 +1,4 @@
 class Feature < ActiveRecord::Base
-  belongs_to :tournaments
-  belongs_to :characters
+  belongs_to :tournament
+  belongs_to :character
 end
