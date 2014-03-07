@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140305081629) do
+ActiveRecord::Schema.define(version: 20140307202359) do
 
   create_table "assigns", force: true do |t|
     t.integer  "player_id"
@@ -46,11 +46,17 @@ ActiveRecord::Schema.define(version: 20140305081629) do
   add_index "features", ["character_id"], name: "index_features_on_character_id"
   add_index "features", ["tournament_id"], name: "index_features_on_tournament_id"
 
+  create_table "games", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "game"
+    t.string   "rules"
+    t.string   "image"
+  end
+
   create_table "players", force: true do |t|
-    t.string  "name"
-    t.string  "gamertag"
-    t.string  "address"
     t.integer "registration_id"
+    t.integer "user_id"
   end
 
   add_index "players", ["registration_id"], name: "index_players_on_registration_id"
@@ -75,12 +81,12 @@ ActiveRecord::Schema.define(version: 20140305081629) do
   add_index "registrations", ["user_id"], name: "index_registrations_on_user_id"
 
   create_table "tournaments", force: true do |t|
-    t.string  "game"
     t.integer "registration_id"
-    t.integer "event_id"
+    t.integer "game_id"
+    t.integer "player_id"
+    t.integer "user_id"
   end
 
-  add_index "tournaments", ["event_id"], name: "index_tournaments_on_event_id"
   add_index "tournaments", ["registration_id"], name: "index_tournaments_on_registration_id"
 
   create_table "tourney_entries", force: true do |t|
@@ -90,6 +96,7 @@ ActiveRecord::Schema.define(version: 20140305081629) do
     t.integer  "registration_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   add_index "tourney_entries", ["player_id"], name: "index_tourney_entries_on_player_id"

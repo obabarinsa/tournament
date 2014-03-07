@@ -7,8 +7,8 @@
           <li>Hello! <%= session[:registration_id] %></li>
         <% end %>
 
- <%= link_to 'Home', root_path, class: 'navbar-brand' %>
-  <%= link_to 'Event', events_url, class: 'navbar-brand' %>
+ <%= link_to 'Event', root_path, class: 'navbar-brand' %>
+  <%= link_to 'Tournaments', games_url, class: 'navbar-brand' %>
    
 
  <% if session[:user_id].blank? %>

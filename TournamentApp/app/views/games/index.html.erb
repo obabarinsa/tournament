@@ -1,12 +1,8 @@
-<!-- <h1 class="page-header">Hello <%= @username %></h1> -->
-
-  
-
- <h1>UFGT 10</h1>
+<h1>UFGT 10</h1>
    <h1>Tournaments!</h1>
 
 
-<% @events.each do |event| %>
+<% @games.each do |event| %>
   <div class="row">
     <div class="col-md-3">
       <%= image_tag event.image, :class => "col-md-10" %>
@@ -18,4 +14,3 @@
     </div>
   </div>
 <% end %>
-

@@ -6,6 +6,7 @@ root "events#home"
 resources :users
 resources :sessions
 resources :registrations
+resources :games
 
 # post '/login' => 'users#login'
 
@@ -22,6 +23,8 @@ resources :players
 
 
 resources :pools 
+
+
 
 
 
