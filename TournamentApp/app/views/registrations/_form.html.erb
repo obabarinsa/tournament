@@ -16,11 +16,11 @@
   <br>
 
 <br>
-  
+  <!-- Issue: need this to take multiple registrations at once, checkbox is for  -->
 <div class="form_for">
     <label for="tournament.game[]">Tournaments:</label>
-    <% for tournament in Tournament.find(:all)  %>
-      <br><%= check_box_tag :game, tournament.game %>
+    <% for tournament in Event.find(:all)  %>
+      <br><%= check_box_tag "game[]", tournament.game %>
       <%= tournament.game.humanize %>
     <% end %>
 </div>   

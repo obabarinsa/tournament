@@ -254,7 +254,7 @@ Pool.destroy_all
 all_pool_data.each do |pool_info|
   Pool.create(:game=> pool_info[:game], :gamertag => pool_info[:gamertag], :ranking => pool_info[:ranking], :pool_group => pool_info[:pool_group])
 end
-
+# seed file, only reads seed data not all data entered in rails console 
 require 'csv'    
 
 csv_text = File.read('/Users/Bolie/Dropbox/CSPP/Winter 2014/Web Dev/git.projects/obabarinsa.github.io/obabarinsa/tournament/character file/character_seed.csv')

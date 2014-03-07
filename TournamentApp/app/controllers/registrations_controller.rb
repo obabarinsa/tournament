@@ -5,6 +5,7 @@ class RegistrationsController < ApplicationController
   end
 
 	def show
+    # Issue: taking user_id as params , when should go to registrations id 
     # @registration = User.registration.find(params[:id])
     # @user = User.find(params[:id])
     # make ab array
@@ -17,12 +18,17 @@ class RegistrationsController < ApplicationController
   end
 
   def create
-    # params[:game].each do   
+    # params[:game].each do 
+   # @id_array = params["game[]"]
+
+  @id_array = params[:game]
+  @id_array.each do  
       registration = Registration.new
       registration.name = params[:name]
       registration.gamertag = params[:gamertag]
       registration.address = params[:address]
-      registration.game = params[:game]
+      registration.game = params["game[]"]
+      # registration.game = params[:game]
       registration.user_id = session[:user_id]
       registration.save
       player = Player.new
@@ -31,24 +37,34 @@ class RegistrationsController < ApplicationController
       player.address = params[:address]
       player.registration_id = registration.id
       player.save
-      tournament = Tournament.new
-      tournament.game = params[:game]
+      # Issue pull event id into tournament table /not sure if really needed / how to do query to fill, not in form by user
+      # event = Event.find(:game)
+      
+      # tournament.event_id = event.id
+      # tournament.save
       # tournament.event_id = Event.where(:game => registration.game)
-      tournament.registration_id = registration.id 
+      tournament = Tournament.new
+
+      tournament.game = params["game[]"]
+      # tournament.game = params[:game]
+      tournament.registration_id = registration.id
+      # tournament.event_id = event.id
       tournament.save
       tourney = TourneyEntry.new
       tourney.tournament_id = tournament.id
       tourney.player_id = player.id 
       tourney.registration_id = registration.id
       tourney.save 
+     end 
 
 
     
       # tentry = TourneyEntry.new
       # tentry.tournament_id = 
     # end
-    	session[:registration_id] = user_url(session[:user_id])
-    	redirect_to registration_url(session[:user_id]), notice: "Registration Completed" 
+    # /Issue currently sessions registrations id is user sessions id, how to create registraion _id? or is one needed? last last class had the login idenity stuff instead?
+    	# session[:registration_id] = registration.id
+    	redirect_to user_url(session[:user_id]), notice: "Registration Completed" 
       # redirect_to registration_url(session[:registration_id])
     	# user_url(session[:user_id])
       # else
