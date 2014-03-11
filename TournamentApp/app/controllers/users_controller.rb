@@ -21,10 +21,13 @@ class UsersController < ApplicationController
     	 user.errors.inspect
 	end 
   end
-def new
-  @user = User.new
-end
+# def new
+#   @user = User.new
+# end
 
+def regs
+  @registrations = Registration.find()
+end 
  #  def edit
 	# 	the_user_id = params["id"]
 	# 	@user = User.find_by(:id => the_user_id)

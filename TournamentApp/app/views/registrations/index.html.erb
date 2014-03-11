@@ -1,0 +1,30 @@
+    
+
+
+    <!-- @reg = Registration.where(user_id: params[:id]) -->
+
+<table>
+	<tr>
+		<!-- <th>Name</th> -->
+		<th  style="padding:0 15px 0 15px;">Gamertag</th>
+		<!-- <th>Address</th> -->
+		<th  style="padding:0 15px 0 15px;">Tournament</th>
+		<th  style="padding:0 15px 0 15px;">Edit</th>
+		<th  style="padding:0 15px 0 15px;">Delete</th>
+
+
+		</tr>
+		<% @registration.each do |reg| %>
+			<tr>
+			<!-- <td><%= reg.name%> </td>  -->
+			<td  style="padding:0 15px 0 15px;"><%= reg.gamertag%> </td>
+			<!-- <td><%= reg.address%> </td> -->
+			<td><%= image_tag reg.game.image, :class => "col-md-4" %> </td>
+			<td><%= link_to "Edit",  edit_registration_path(reg), class: 'btn btn-warning', :method => :patch %></td>
+			<td><%= link_to "Delete Registration", registration_path(reg), class: 'btn btn-warning',data: { confirm: 'Are you sure?' }, :method => :delete %></td>
+			</tr>
+			<% end %>
+		</table>
+
+
+ 

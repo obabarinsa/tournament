@@ -6,6 +6,8 @@ class Registration < ActiveRecord::Base
 	 has_many :tourney_entries, :dependent => :destroy
 	 has_many :players, :through => :tourney_entries, :dependent => :destroy
 	 has_many :tournaments, :through => :tourney_entries, :dependent => :destroy
+	 has_many :players, :dependent => :destroy
+	 has_many :tournaments, :dependent => :destroy
 
 	
 

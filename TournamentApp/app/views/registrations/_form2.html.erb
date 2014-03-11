@@ -1,9 +1,10 @@
 
-
-<h2> Tournament Registration </h2>
+<h2> Update Your Registration </h2>
 
 <label> Player Info:</label>
-<%= form_tag "/registrations" do %>
+
+
+<%= form_tag @reg, :as => :reg, :url => registrations_path, :html => {:multipart => true, :method => :put} do  -%>
 
   <%= label_tag :name %>
   <%= text_field_tag :name %>
@@ -28,6 +29,6 @@
 
 <br>
 
-<%= submit_tag "Submit!"%>
+<%= submit_tag "Save Changes"%>
 
 <% end %>
