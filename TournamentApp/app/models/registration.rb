@@ -9,6 +9,7 @@ class Registration < ActiveRecord::Base
 	 has_many :players, :dependent => :destroy
 	 has_many :tournaments, :dependent => :destroy
 
+
 	
 
 end

@@ -1,10 +1,13 @@
+<%= form_tag @reg, :as => :reg, :url => registrations_path, :html => {:multipart => true, :method => :put} do  -%>
 
-<h2> Update Your Registration </h2>
+
+			<td><%= image_tag reg.game.image, :class => "col-md-6" %> </td>
+
+
+<h2> Tournament Registration </h2>
 
 <label> Player Info:</label>
-
-
-<%= form_tag "/registrations/#{@registration.id}", :method => 'patch' do %>
+<%= form_tag "/registrations" do %>
 
   <%= label_tag :name %>
   <%= text_field_tag :name %>
@@ -32,3 +35,6 @@
 <%= submit_tag "Submit!"%>
 
 <% end %>
+
+
+Post.where(published: true).to_a
