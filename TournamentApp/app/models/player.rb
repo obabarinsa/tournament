@@ -4,7 +4,10 @@ has_many :tourney_entries, :dependent => :destroy
 has_many :tournaments, :through => :tourney_entries, :dependent => :destroy
 has_many :pools, :through => :assigns, :dependent => :destroy
 belongs_to :tournament
+validates :registration_id, :presence => true
 # belongs_to :pool
 
 	
 end
+
+# heroku create 

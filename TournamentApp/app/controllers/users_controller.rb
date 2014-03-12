@@ -18,7 +18,8 @@ class UsersController < ApplicationController
     	redirect_to root_url, notice: "Thanks for signing up!"
     	# user_url(session[:user_id])
     else
-    	 user.errors.inspect
+    	# render user.errors.inspect
+      redirect_to new_user_path, notice: "Sorry, another user has this email."
 	end 
   end
 # def new

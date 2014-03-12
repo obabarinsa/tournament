@@ -40,11 +40,15 @@ class RegistrationsController < ApplicationController
       tourney.registration_id = registration.id
       tourney.user_id = registration.user_id
       tourney.save 
-     end
-    
+     
+    if registration.save 
     	redirect_to user_url(session[:user_id]), notice: "Registration Completed" 
-   
+    else
+      # render user.errors.inspect
+      redirect_to new_registration_path, notice: "Field Invalid, name or gamertag has to be between 6-20 characters, all fields must be filled in"
   end
+end
+end
 
   def destroy 
     @reg = Registration.find(params[:id])
@@ -67,18 +71,24 @@ class RegistrationsController < ApplicationController
     r.gamertag = params["gamertag"]
     r.address = params["address"]
     r.game_id = gm
-    
     r.save
+    g = Tournament.find_by(:registration_id => params["id"])
+    g.game_id = r.game.id
+    g.save
+
+    # t = Tournament.find_by(:id =>)
+    # how to update foreign key in tournament
+   
     
   end
-  end
+  # @registration = Registration.update_attributes()
    # if @registration.update(registration_params)
-    redirect_to registrations_path, :notice => "Your registration has been updated"
+    redirect_to "/registrations/", :notice => "Your registration has been updated"
    #   else
    #     render 'edit'
    #   end 
    
-  # end
+   end
 
   # private 
   #    def set_registration

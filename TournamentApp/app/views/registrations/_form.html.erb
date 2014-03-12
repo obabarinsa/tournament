@@ -3,6 +3,9 @@
 <h2> Tournament Registration </h2>
 
 <label> Player Info:</label>
+ <% if notice.present? %>
+ <%= notice %>
+ <% end %> 
 <%= form_tag "/registrations" do %>
 
   <%= label_tag :name %>
@@ -31,3 +34,5 @@
 <%= submit_tag "Submit!"%>
 
 <% end %>
+
+<%= link_to "Back To My Profile", user_url(session[:user_id]),  class: 'navbar-brand' %>

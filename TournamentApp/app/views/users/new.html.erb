@@ -1,5 +1,9 @@
 <h1>Sign Up!</h1>
 
+<% if notice.present? %>
+ <%= notice %>
+ <% end %> 
+
 <%= form_tag "/users" do %>
 
   <%= label_tag :name %>
@@ -14,3 +18,4 @@
   <%= submit_tag "Sign Me Up!" %>
 
 <% end %>
+
