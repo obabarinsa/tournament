@@ -1,7 +1,7 @@
 class GamesController < ApplicationController
-
+	
 def index
-		@games = Game.all.order("game asc")
+		@games = Game.all.order("name asc")
 	end
 
 	def show 

@@ -1,1 +1,48 @@
-<h1 class="page-header">Hello <%= @username %></h1>
+<h1 class="page-header"> <%= @username %>'s Pools</h1>
+
+<h2> Character choices random population</h2>
+
+<table>
+	<tr>
+		<th style="padding:0 15px 0 15px;">Character </th>
+
+		</tr>
+
+				</table>
+
+</tr>
+<% @pools.each do |pol| %>
+  <tr>
+     <% @check = pol.game_id %>
+
+      <% @chk = Game.find(@check).name  %>
+
+
+    <td> <% @t = Character.where(:name => @chk).sample(2) %></td>
+
+
+       <% @t.each do |rope| %>
+	
+       <td><%= rope.character %></td>
+       <td > <%= image_tag rope.image_url, :class => :image_responsive %> </td>
+
+       
+
+
+       <% end %>
+
+   
+<% end %>
+
+
+		</table>
+
+
+
+
+	 
+
+
+
+
+ <%= link_to "Back To My Profile", user_url(session[:user_id]),  class: 'navbar-brand' %> 

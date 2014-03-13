@@ -17,37 +17,43 @@ class RegistrationsController < ApplicationController
   def create
   @id_array = params[:game]
   @id_array.each do  |gm|
-      registration = Registration.new
-      registration.name = params[:name]
-      registration.gamertag = params[:gamertag]
-      registration.address = params[:address]
-      registration.game_id = gm
-      registration.user_id = session[:user_id]
-      registration.save
-      player = Player.new
-      player.registration_id = registration.id
-      player.user_id = registration.user_id
-      player.save
-      tournament = Tournament.new
-      tournament.game_id = gm
-      tournament.registration_id = registration.id
-      tournament.player_id = player.id 
-      tournament.user_id = registration.user_id
-      tournament.save
-      tourney = TourneyEntry.new
-      tourney.tournament_id = tournament.id
-      tourney.player_id = player.id 
-      tourney.registration_id = registration.id
-      tourney.user_id = registration.user_id
-      tourney.save 
+      @registration = Registration.new
+      @registration.name = params[:name]
+      @registration.gamertag = params[:gamertag]
+      @registration.address = params[:address]
+      @registration.game_id = gm
+      @registration.user_id = session[:user_id]
+      @registration.save
+      @player = Player.new
+      @player.registration_id = @registration.id
+      @player.user_id = @registration.user_id
+      @player.save
+      @tournament = Tournament.new
+      @tournament.game_id = gm
+      @tournament.registration_id = @registration.id
+      @tournament.player_id = @player.id 
+      @tournament.user_id = @registration.user_id
+      @tournament.save
+      @pool = Pool.new
+      @pool.player_id = @player.id
+      @pool.game_id = gm
+      @pool.save
+      @tourney = TourneyEntry.new
+      @tourney.tournament_id = @tournament.id
+      @tourney.player_id = @player.id 
+      @tourney.registration_id = @registration.id
+      @tourney.user_id = @registration.user_id
+      @tourney.pool_id = @pool.id
+      @tourney.save 
+    end
+
      
-    if registration.save 
-    	redirect_to user_url(session[:user_id]), notice: "Registration Completed" 
+    if @registration.save
+    	redirect_to user_url(session[:user_id]), notice: "Registration Completed" and return
     else
       # render user.errors.inspect
-      redirect_to new_registration_path, notice: "Field Invalid, name or gamertag has to be between 6-20 characters, all fields must be filled in"
+      redirect_to new_registration_path, notice: "Field Invalid, name or gamertag has to be between 6-20 characters, all fields must be filled in" and return 
   end
-end
 end
 
   def destroy 
@@ -75,9 +81,11 @@ end
     g = Tournament.find_by(:registration_id => params["id"])
     g.game_id = r.game.id
     g.save
-
-    # t = Tournament.find_by(:id =>)
-    # how to update foreign key in tournament
+    z = g.player_id 
+    p = Pool.find_by(:player_id => z)
+    p.game_id = r.game.id
+    p.save
+    
    
     
   end

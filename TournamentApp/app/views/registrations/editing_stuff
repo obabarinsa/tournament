@@ -38,3 +38,83 @@
 
 
 Post.where(published: true).to_a
+
+<%= form_for @registration do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :gamertag %>
+  <%= f.text_field :gamertag %>
+  <br>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+  <br>
+
+<br>
+<div class="form_tag">
+    <label for="tournament.game[]">Tournaments:</label>
+    <% for tournament in Game.find(:all)  %>
+      <br><%= check_box_tag "game[]", tournament.id %>
+      <%= tournament.game.humanize %>
+    <% end %>
+</div>   
+
+
+<br>
+     <td> <%= image_tag @gp = Game.find(@check).image, :class => "col-md-5"%></td>
+
+
+<%= f.submit"Save Changes" %>
+
+<% end %>
+
+
+<%=  @pol%> 
+	<%= @check %>
+		<%=  @cool %> 
+ 
+
+	<%= image_tag @result, :class => "col-md-6" %>
+
+
+<%= link_to "My Profile", user_url(session[:user_id]),  class: 'navbar-brand' %>
+       <%= link_to 'Tournaments', tournaments_url, class: 'navbar-brand' %>
+       <%= link_to 'Pools', pools_url, class: 'navbar-brand' %>
+       <%= link_to "Sign Out", logout_url ,  class: 'navbar-brand'%>
+
+
+<h2> Update Your Registration </h2>
+
+<label> Player Info:</label>
+
+<%= form_tag "/registrations/#{@registration.id}", :method => 'patch' do %>
+
+  <%= label_tag :name %>
+  <%= text_field_tag :name %>
+  <br>
+  <%= label_tag :gamertag %>
+  <%= text_field_tag :gamertag %>
+  <br>
+  <%= label_tag :address %>
+  <%= text_field_tag :address %>
+  <br>
+
+<br>
+  <!-- Issue: need this to take multiple registrations at once, checkbox is for Solved, Issue 2: game[].id if i want -->
+<div class="form_for">
+    <label for="tournament.game[]">Tournaments:</label>
+    <% for tournament in Game.find(:all)  %>
+      <br><%= check_box_tag "game[]", tournament.id %>
+      <%= tournament.game.humanize %>
+    <% end %>
+</div>   
+
+
+<br>
+
+<%= submit_tag "Submit!"%>
+
+<% end %>
+
+
+<%= link_to "New Registration", registration_path([:registration_id]),  class: 'navbar-brand' %>

@@ -22,7 +22,7 @@
     <label for="tournament.game[]">Tournaments:</label>
     <% for tournament in Game.find(:all)  %>
       <br><%= check_box_tag "game[]", tournament.id %>
-      <%= tournament.game.humanize %>
+      <%= tournament.name.humanize %>
     <% end %>
 </div>   
 

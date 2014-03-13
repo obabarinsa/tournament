@@ -3,9 +3,7 @@
 <h2> Tournament Registration </h2>
 
 <label> Player Info:</label>
- <% if notice.present? %>
- <%= notice %>
- <% end %> 
+
 <%= form_tag "/registrations" do %>
 
   <%= label_tag :name %>
@@ -21,10 +19,10 @@
 <br>
   <!-- Issue: need this to take multiple registrations at once, checkbox is for Solved, Issue 2: game[].id if i want -->
 <div class="form_for">
-    <label for="tournament.game[]">Tournaments:</label>
+    <label for="tournament.name[]">Tournaments:</label>
     <% for tournament in Game.find(:all)  %>
       <br><%= check_box_tag "game[]", tournament.id %>
-      <%= tournament.game.humanize %>
+      <%= tournament.name.humanize %>
     <% end %>
 </div>   
 

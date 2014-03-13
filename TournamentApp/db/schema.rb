@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140307213937) do
+ActiveRecord::Schema.define(version: 20140312220937) do
 
   create_table "assigns", force: true do |t|
     t.integer  "player_id"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20140307213937) do
   add_index "assigns", ["pool_id"], name: "index_assigns_on_pool_id"
 
   create_table "characters", force: true do |t|
-    t.string "game"
+    t.string "name"
     t.string "character"
     t.string "image_url"
   end
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20140307213937) do
   create_table "games", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "game"
+    t.string   "name"
     t.string   "rules"
     t.string   "image"
   end
@@ -63,11 +63,12 @@ ActiveRecord::Schema.define(version: 20140307213937) do
   add_index "players", ["user_id"], name: "index_players_on_user_id"
 
   create_table "pools", force: true do |t|
-    t.string  "game"
-    t.string  "gamertag"
-    t.integer "ranking"
-    t.integer "pool_group"
+    t.integer "game_id"
+    t.integer "player_id"
   end
+
+  add_index "pools", ["game_id"], name: "index_pools_on_game_id"
+  add_index "pools", ["player_id"], name: "index_pools_on_player_id"
 
   create_table "registrations", force: true do |t|
     t.string   "name"

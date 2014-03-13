@@ -1,5 +1,8 @@
 class Game < ActiveRecord::Base
 	belongs_to :tournament
-	# validates :tournament, :presence => true
-	has_many :registrations
+	has_many :registrations, :dependent => :destroy
+	has_many :pools, :dependent => :destroy
+	has_many :characters, :dependent => :destroy
+
+
 end
