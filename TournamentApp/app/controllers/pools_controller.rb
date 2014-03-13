@@ -28,12 +28,13 @@ class PoolsController < ApplicationController
     
 	def index
 	
-		@pools = Pool.all.order("game_id asc")
+	 @pools = Pool.all.order("game_id asc")
+    # @pools = Tournament.where(:user_id => params[:id])
 
 	end
 
 	def show
-	@pol = Pool.find(:all) 
+    @pools = Tournament.where(:user_id => params[:id])
 
    end
 

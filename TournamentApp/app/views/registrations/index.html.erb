@@ -17,9 +17,9 @@
 		<% @registration.each do |reg| %>
 			<tr>
 			<!-- <td><%= reg.name%> </td>  -->
-			<td  style="padding:0 15px 0 15px;"><%= reg.gamertag%> </td>
+			<td style="padding:0 15px 0 15px;"><%= reg.gamertag%> </td>
 			<!-- <td><%= reg.address%> </td> -->
-			<td><%= image_tag reg.game.image, :class =>  %> </td>
+			<td><%= image_tag reg.game.image, :class => "col-md-10"  %> </td>
 			<td><%= link_to "Edit",  edit_registration_path(reg), class: 'btn btn-warning' %></td>
 			<td><%= link_to "Delete Registration", registration_path(reg), class: 'btn btn-warning',data: { confirm: 'Are you sure?' }, :method => :delete %></td>
 			</tr>

@@ -273,7 +273,7 @@ all_game_data = [ 	{:name => "Super Street Fighter 4",
 					:rules => "Default settings, except Auto Super Jump which will be set to OFF. 3 out of 5 games. At either player’s request, matches will be played on the Bonne Wonderland stage. This request must be made before the match starts. Loser may change characters/assists. Winner cannot change characters or assists. Both players may alter their order by holding A1 or A2 during loading.",
 					:image => "http://4.bp.blogspot.com/-vMKl4wIoqJI/T_9sspFkOXI/AAAAAAAAAHM/GgYouPIQoJc/s640/umvc3logo.jpg"
 					},
-					{:name => "BlazBlue: Chrono",
+					{:name => "BlazeBlue: Chrono",
 					:rules => "Double Elimination, 2 out of 3 games",
 					:image => "http://i2.wp.com/shoryuken.com/wp-content/uploads/2013/03/blazblue-bbcp-frontpage.jpg"
 					},
@@ -281,7 +281,7 @@ all_game_data = [ 	{:name => "Super Street Fighter 4",
 					:rules => "2 out of 3 games, default settings. Batgirl is banned. We are using the 5/21/13 balance batch. Stage selection will be handled by the game’s rules exclusively, meaning that every match both players get to choose a stage and the game will 50/50.",
 					:image => "http://multiplayerblog.mtv.com//wp-content/uploads/multi/2013/04/INJMain.jpg"
 					},
-					{:name => "Guilty Gear XX Accent Core R",
+					{:name => "Guilty Gear Core R",
 					:rules => "Double Elimination, 2 out of 3 games",
 					:image => "http://shoryuken.com/wp-content/uploads/2012/12/ggxxac+r-logo.jpg"
 					},
@@ -321,7 +321,7 @@ all_game_data = [ 	{:name => "Super Street Fighter 4",
 					:rules => "3/5 rounds, other settings on default. 2 out of 3 games. Soul of Devil Jin is banned. Stage selection is random.",
 					:image => "http://1.bp.blogspot.com/-i1UV33GRCVo/TkvjREofjJI/AAAAAAAAB2I/atJW2498V-E/s1600/072411_SCV.jpg"
 					},
-					{:name => "Street Fighter x Tekken",
+					{:name => "Street Fighter X Tekken",
 					:rules => "Default settings, 2 out of 3 games.  Default gem sets only. At either player’s request, the Half Pipe stage will used.",
 					:image => "http://static4.wikia.nocookie.net/__cb20120316074952/streetfighter/images/1/11/Street-Fighter-X-Tekken-Logo.png"
 					},

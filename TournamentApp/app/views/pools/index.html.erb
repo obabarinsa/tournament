@@ -1,6 +1,6 @@
 <h1 class="page-header"> <%= @username %>'s Pools</h1>
 
-<h2> Character choices random population</h2>
+<h2> View all Characters in Tournaments</h2>
 
 <table>
 	<tr>
@@ -36,7 +36,8 @@
 
 
 		</table>
-
+     <%= link_to "View Your Pools' Character", pool_url(session[:user_id]),  class: 'navbar-brand' %> 
+ 
 
 
 
