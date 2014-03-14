@@ -9,5 +9,5 @@ class Tournament < ActiveRecord::Base
  has_many :tourney_entries, :dependent => :destroy
  has_many :characters, :through => :features, :dependent => :destroy
 
-
+ 
 end

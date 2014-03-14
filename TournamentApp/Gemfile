@@ -47,6 +47,8 @@ end
 
  gem 'mail'
 
+ gem 'rails_12factor', group: :production
+
 
 # gem 'acts_as_commentable_with_threading'
 

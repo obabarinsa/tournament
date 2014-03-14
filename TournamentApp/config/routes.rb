@@ -1,5 +1,8 @@
 TournamentApp::Application.routes.draw do
  
+  # resources :posts
+
+
 root "events#home" 
 
  
@@ -24,7 +27,11 @@ resources :players
 
 resources :pools 
 
+resources :posts do
+    resources :comments, :only => [:create]
+  end
 
+  # root :to => 'welcome#index'
 
 
 
