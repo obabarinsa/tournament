@@ -46,6 +46,9 @@ end
  gem 'devise'
 
 
+gem 'acts_as_commentable_with_threading'
+
+gem 'haml-rails'
 
 
 # Use unicorn as the app server

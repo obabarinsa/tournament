@@ -4,10 +4,10 @@
 
 <table>
 	<tr>
-		<th style="padding:0 15px 0 15px;">Character </th>
-
-		</tr>
-
+  <th style="padding:0 15px 0 15px;"><%= sortable "Game" %></th>
+  <th style="padding:0 130px 0 130px;"><%= sortable "Name" %></th>
+  <th style="padding:0 15px 0 15px;"><%= sortable "Character" %></th>
+</tr>
 				</table>
 
 </tr>
@@ -22,9 +22,9 @@
 
 
        <% @t.each do |rope| %>
-	
-       <td><%= rope.character %></td>
-       <td > <%= image_tag rope.image_url, :class => :image_responsive %> </td>
+	   <td style="padding:0 0px 0 0px;"><%= rope.name + ':' %> </td>
+       <td ><%= rope.character %></td>
+       <td style="padding:0 15px 0 15px;"> <%= image_tag rope.image_url, class: "img-responsive" %> </td>
 
        
 

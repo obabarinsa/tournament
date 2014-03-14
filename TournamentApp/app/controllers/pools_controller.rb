@@ -1,4 +1,5 @@
 class PoolsController < ApplicationController
+  helper_method :sort_column, :sort_direction
 
 	before_action :require_login, :except => [:home, :login]
     before_action :identify_user
@@ -28,10 +29,19 @@ class PoolsController < ApplicationController
     
 	def index
 	
-	 @pools = Pool.all.order("game_id asc")
+	 @pools = Pool.all.order(sort_column + " " + sort_direction)
     # @pools = Tournament.where(:user_id => params[:id])
 
 	end
+    private
+  
+  def sort_column
+    Pool.column_names.include?(params[:sort]) ? params[:sort] : "game_id"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
 
 	def show
     @pools = Tournament.where(:user_id => params[:id])
