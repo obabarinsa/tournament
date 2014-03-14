@@ -75,7 +75,7 @@ all_event_data = [ {:event => "Ultimate Fighting Game Tournament 10",
 					{:event => "Ultimate Fighting Game Tournament 10",
 					:game => "Soul Calibur V",
 					:rules => "3/5 rounds, other settings on default. 2 out of 3 games. Soul of Devil Jin is banned. Stage selection is random.",
-					:image => "http://1.bp.blogspot.com/-i1UV33GRCVo/TkvjREofjJI/AAAAAAAAB2I/atJW2498V-E/s1600/072411_SCV.jpg"
+					:image => "http://www.gamedot.co.uk/media/2012/03/SoulcaliburV.jpg"
 					},
 					{:event => "Ultimate Fighting Game Tournament 10",
 					:game => "Street Fighter x Tekken",
