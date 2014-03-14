@@ -8,7 +8,7 @@ resources :sessions
 resources :registrations
 resources :games
 
-# post '/login' => 'users#login'
+ post '/login' => 'users#login'
 
 get "/logout" => "sessions#destroy", as: 'logout'
 

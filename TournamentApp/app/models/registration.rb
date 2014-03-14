@@ -12,9 +12,8 @@ class Registration < ActiveRecord::Base
 	 validates_presence_of :address
 	 validates_presence_of :game
 
-
-
-
-	
-
+protected
+ after_save do |registration|
+    puts "You have saved a registration!"
+  end
 end

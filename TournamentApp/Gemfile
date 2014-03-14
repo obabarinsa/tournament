@@ -45,10 +45,11 @@ end
 
  gem 'devise'
 
+ gem 'mail'
 
-gem 'acts_as_commentable_with_threading'
 
-gem 'haml-rails'
+# gem 'acts_as_commentable_with_threading'
+
 
 
 # Use unicorn as the app server

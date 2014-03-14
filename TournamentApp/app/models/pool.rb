@@ -9,4 +9,11 @@ class Pool < ActiveRecord::Base
 	belongs_to :players
 	belongs_to :game
 
+
+
+
+protected
+after_find do |pool|
+    puts "You have found a pool object!"
+  end
 end

@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
 
 	has_many :registrations, :dependent => :destroy
 
+ protected 
+  	after_destroy do |user|
+		puts "User purged from database"  
+	end
 end
