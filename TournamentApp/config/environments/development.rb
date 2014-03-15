@@ -39,8 +39,8 @@ TournamentApp::Application.configure do
   address:              'smtp.gmail.com',
   port:                 587,
   domain:               'gmail.com',
-  user_name:            'bolie160@gmail.com',
-  password:             'fraudbitesthedust',
+  user_name:            '[gmail username]',
+  password:             '[gmail password]',
   authentication:       'plain',
   enable_starttls_auto: true  }
 

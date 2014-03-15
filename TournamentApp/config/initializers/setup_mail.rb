@@ -8,7 +8,7 @@
 #   :port                 => 587,
 #   :domain               => "gmail.com",
 #   :user_name            => "bolie160@gmail.com",
-#   :password             => "fraudbitsthedust",
+#   :password             => "fraudbitesthedust",
 #   :authentication       => "plain",
 #   :enable_starttls_auto => true
 # }

@@ -263,7 +263,7 @@ end
 
 require 'csv'    
 
-csv_text = File.read('/Users/Bolie/Dropbox/CSPP/Winter 2014/Web Dev/git.projects/obabarinsa.github.io/obabarinsa/tournament/character file/character_seed.csv')
+csv_text = File.read('db/character_seed.csv')
 csv = CSV.parse(csv_text, :headers => true)
 Character.destroy_all
 csv.each do |row|

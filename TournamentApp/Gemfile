@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'figaro'
 gem 'smarter_csv'
 
 gem 'sunspot_rails'
