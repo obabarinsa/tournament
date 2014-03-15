@@ -21,7 +21,7 @@ class CharactersController< ApplicationController
 	end
 
 	def create 
-		c.= Character.new
+		c  = Character.new
 		c.game = params["game"]
 		c.character = params["character"]
 		c.image_url = params["image_url"]

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140314170600) do
+ActiveRecord::Schema.define(version: 20140314191226) do
 
   create_table "assigns", force: true do |t|
     t.integer  "player_id"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20140314170600) do
   create_table "characters", force: true do |t|
     t.string "name"
     t.string "character"
-    t.string "image_url"
+    t.text   "image_url", limit: 255
   end
 
   create_table "comments", force: true do |t|
@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(version: 20140314170600) do
   create_table "events", force: true do |t|
     t.string "event"
     t.string "game"
-    t.string "image"
-    t.string "rules"
+    t.text   "image", limit: 255
+    t.text   "rules", limit: 255
   end
 
   create_table "features", force: true do |t|
@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(version: 20140314170600) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
-    t.string   "rules"
-    t.string   "image"
+    t.text     "rules",      limit: 255
+    t.text     "image",      limit: 255
   end
 
   create_table "players", force: true do |t|

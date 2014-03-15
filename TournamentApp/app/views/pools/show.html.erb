@@ -2,16 +2,25 @@
 
 <h2> Character choices random population</h2>
 
+
+
+
+   <% @pool = Tournament.where(:user_id => params['id']) %>
+
+
 <table>
-	<tr>
-		<th style="padding:0 15px 0 15px;">Character </th>
+  <tr>
+    <th style="padding:0 15px 0 15px;">Game </th>
+    <th style="padding:0 15px 0 15px;">Character </th>
 
-		</tr>
+    </tr>
 
-				</table>
+        </table>
 
 </tr>
-<% @pools.each do |pol| %>
+
+ 
+<% @pool.each do |pol| %>
   <tr>
      <% @check = pol.game_id %>
 
@@ -22,7 +31,8 @@
 
 
        <% @t.each do |rope| %>
-	
+         <td><%= rope.name %></td>
+
        <td><%= rope.character %></td>
        <td > <%= image_tag rope.image_url, :class => :image_responsive %> </td>
 
@@ -35,14 +45,7 @@
 <% end %>
 
 
-		</table>
-
-
-
-
-	 
-
-
+    </table>
 
 
  <%= link_to "Back To My Profile", user_url(session[:user_id]),  class: 'navbar-brand' %> 

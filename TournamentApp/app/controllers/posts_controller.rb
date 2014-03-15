@@ -5,6 +5,11 @@ before_filter :authenticate, :except => [ :index, :show ]
   # GET /posts.json
   def index
     @posts = Post.all
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @posts }
+      format.atom
+    end
   end
 
   # GET /posts/1

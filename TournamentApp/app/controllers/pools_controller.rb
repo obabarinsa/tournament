@@ -44,7 +44,10 @@ class PoolsController < ApplicationController
   end
 
 	def show
-    @pools = Tournament.where(:user_id => params[:id])
+    # p  = params["id"]
+    @pool = Tournament.where(:user_id => params['id'])
+
+     # @pools = Pool.all.order(sort_column + " " + sort_direction)
 
    end
 
@@ -55,8 +58,9 @@ class PoolsController < ApplicationController
     redirect_to pools_url
     end
 
-	def new 
-	end
+	# def new 
+ #    @pool = Pool.all
+	# end
 
 	
 	

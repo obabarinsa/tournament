@@ -43,4 +43,8 @@ TournamentApp::Application.configure do
   password:             'fraudbitesthedust',
   authentication:       'plain',
   enable_starttls_auto: true  }
+
+
+  config.assets.raise_production_errors = true
+
 end

@@ -255,6 +255,12 @@ end
 #   Pool.create(:game=> pool_info[:game], :gamertag => pool_info[:gamertag], :ranking => pool_info[:ranking], :pool_group => pool_info[:pool_group])
 # end
 # seed file, only reads seed data not all data entered in rails console 
+
+# require 'smarter_csv'
+
+# def import('/Users/Bolie/Dropbox/CSPP/Winter 2014/Web Dev/git.projects/obabarinsa.github.io/obabarinsa/tournament/character file/character_seed.csv')
+# 	results = SmarterCSV.process()
+
 require 'csv'    
 
 csv_text = File.read('/Users/Bolie/Dropbox/CSPP/Winter 2014/Web Dev/git.projects/obabarinsa.github.io/obabarinsa/tournament/character file/character_seed.csv')
@@ -305,7 +311,7 @@ all_game_data = [ 	{:name => "Super Street Fighter 4",
 					:rules => "Double Elimination, 2 out of 3 games",
 					:image => "http://upload.wikimedia.org/wikipedia/en/d/db/Killer_instinct_(2013)_logo.jpg"
 					},
-					{:name => "Divekick",
+					{:name => "Divekick ",
 					:rules => "2 out of 3 games, default settings. Loser may change character/gem. Winner may change gem after the loser changes characters, but before he selects his gem.",
 					:image => "http://i1.wp.com/shoryuken.com/wp-content/uploads/2014/02/divekick-logo-dojo-622.jpg"
 					},
@@ -319,7 +325,7 @@ all_game_data = [ 	{:name => "Super Street Fighter 4",
 					},
 					{:name => "Soul Calibur V",
 					:rules => "3/5 rounds, other settings on default. 2 out of 3 games. Soul of Devil Jin is banned. Stage selection is random.",
-					:image => "http://1.bp.blogspot.com/-i1UV33GRCVo/TkvjREofjJI/AAAAAAAAB2I/atJW2498V-E/s1600/072411_SCV.jpg"
+					:image => "http://www.gamedot.co.uk/media/2012/03/SoulcaliburV.jpg"
 					},
 					{:name => "Street Fighter X Tekken",
 					:rules => "Default settings, 2 out of 3 games.  Default gem sets only. At either player’s request, the Half Pipe stage will used.",
