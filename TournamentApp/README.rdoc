@@ -3,3 +3,5 @@
 Elective Components: (1)deployed to heroku. peaceful-plains-9267.herokuapp.com and  (2) implemented Actionmailer through Sendgrid. Also implemented through google on local app (removed bc of use of email password, it works when entered in development.rb file). 
 
 Used scaffold for posts model and followed this tutorial: http://www.reinteractive.net/posts/32-ruby-on-rails-3-2-blog-in-15-minutes-step-by-step
+
+To post the username is admin and the password is secret. 
