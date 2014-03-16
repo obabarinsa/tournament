@@ -4,44 +4,31 @@
 
 <table>
 	<tr>
-  <th style="padding:0 15px 0 15px;"><%= sortable "Game" %></th>
-  <th style="padding:0 130px 0 130px;"><%= sortable "Name" %></th>
-  <th style="padding:0 15px 0 15px;"><%= sortable "Character" %></th>
+  <th style="padding:0 15px 0 15px;"><%= sortable "Game: Character" %></th>
 </tr>
 				</table>
 
-</tr>
+
 <% @pools.each do |pol| %>
-  <tr>
      <% @check = pol.game_id %>
+    <% @chk = Game.find(@check).name  %>
+     <% @t = Character.where(:name => @chk).sample(2) %>
+    <% @t.each do |rope| %>
+    <div class="col-md-15">
+	  <%= rope.name + ':' %> 
 
-      <% @chk = Game.find(@check).name  %>
 
 
-    <td> <% @t = Character.where(:name => @chk).sample(2) %></td>
+    <%= rope.character %>
 
 
-       <% @t.each do |rope| %>
-	   <td style="padding:0 0px 0 0px;"><%= rope.name + ':' %> </td>
-       <td ><%= rope.character %></td>
-       <td style="padding:0 15px 0 15px;"> <%= image_tag rope.image_url, class: "img-responsive" %> </td>
-
-       
-
+      <%= image_tag rope.image_url, class: "img-responsive" %>
 
        <% end %>
-
-   
 <% end %>
 
 
-		</table>
      <%= link_to "View Your Pools' Character", pool_url(session[:user_id]),  class: 'navbar-brand' %> 
- 
-
-
-
-	 
 
 
 

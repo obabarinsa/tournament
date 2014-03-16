@@ -10,8 +10,7 @@
 
 <table>
   <tr>
-    <th style="padding:0 15px 0 15px;">Game </th>
-    <th style="padding:0 15px 0 15px;">Character </th>
+    <th style="padding:0 15px 0 15px;">Game Character </th>
 
     </tr>
 
@@ -26,24 +25,25 @@
 
       <% @chk = Game.find(@check).name  %>
 
-
     <td> <% @t = Character.where(:name => @chk).sample(2) %></td>
 
-
        <% @t.each do |rope| %>
+           <div class="col-md-15">
+
          <td><%= rope.name %></td>
 
+             <div class="center">
+
+
        <td><%= rope.character %></td>
+
+           <div class="right">
+
        <td > <%= image_tag rope.image_url, :class => :image_responsive %> </td>
 
-       
-
-
        <% end %>
-
    
 <% end %>
-
 
     </table>
 
